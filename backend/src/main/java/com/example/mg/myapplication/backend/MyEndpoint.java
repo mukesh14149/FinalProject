@@ -39,6 +39,12 @@ public class MyEndpoint {
     }
     @ApiMethod(name = "getJoke")
     public MyBean getJoke() {
+        try {
+            Thread.sleep(5 * 1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         MyBean response = new MyBean();
         response.setData(new Joke().getJoke());
         return response;
